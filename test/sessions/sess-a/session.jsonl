@@ -1,0 +1,9 @@
+{"type":"session","version":0,"id":"session-1111-2222","createdAt":1700000000000,"cwd":"/home/palxex/demo","agentPreset":"standard"}
+{"type":"session/title","seq":10,"time":1700000000001,"data":{"title":"kumquat investigation","messageSeqs":[8],"source":{"kind":"fallback"}}}
+{"type":"request/header","seq":11,"time":1700000000002,"data":{"header":{"config":{"provider":"deepseek-official","model":"deepseek-v4-flash"},"system":"You are a helpful dsh agent"}}}
+{"type":"user/message","seq":8,"time":1700000000010,"data":{"content":[{"type":"text","text":"Please find the kumquat marker in the codebase"}],"role":"user","id":"m1"},"surfaceOp":"append"}
+{"type":"assistant/message","seq":97,"time":1700000000020,"data":{"turn":1,"step":1,"message":{"role":"assistant","content":[{"type":"reasoning","text":"Let me grep for kumquat"},{"type":"text","text":"I will search for kumquat now"}]}}}
+{"type":"tool/call","seq":98,"time":1700000000030,"data":{"turn":1,"step":1,"callId":"call_abc","name":"bash","arguments":"{\"command\":\"grep -r kumquat .\"}"}}
+{"type":"tool/result","seq":100,"time":1700000000040,"data":{"turn":1,"step":1,"message":{"source":{"kind":"tool","callId":"call_abc"},"content":[{"type":"tool-result","toolCallId":"call_abc","content":[{"type":"text","text":"./src/kumquat.ts:42: export const kumquat = 1"}]}]}}}
+{"type":"assistant/chunk","seq":200,"time":1700000000050,"data":{"delta":"kumquat streaming noise"}}
+{"type":"turn/end","seq":201,"time":1700000000060,"data":{}}

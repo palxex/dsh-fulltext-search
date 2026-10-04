@@ -1,0 +1,82 @@
+{
+  "name": "dsh-fulltext-search",
+  "version": "0.1.0",
+  "description": "DSH 会话全文搜索插件：遍历本地全部会话记录（zstd 压缩与明文两种存储都认），按关键字定位历史对话、代码片段与决策条目，返回所属会话、命中行号与上下文行。 Cross-session full-text search for DeepSeek Harness — locate any past conversation by keyword across zstd-compressed and plaintext session logs.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./records.js": "./lib/records.js",
+    "./engine.js": "./lib/engine.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/engine.js",
+    "lib/records.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "docs/**",
+    "test/**/*.js",
+    "test/sessions/**",
+    "scripts/*.mjs"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "compat": {
+      "dsh": ">=0.2.0-rc.2"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-primitives",
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "session",
+    "search",
+    "grep",
+    "fulltext",
+    "chat",
+    "历史",
+    "搜索",
+    "检索"
+  ],
+  "author": "palxex <ex@palx.org>",
+  "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/palxex/dsh-fulltext-search.git"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.4",
+    "@deepseek-ai/dsh-tools": ">=0.2.0-rc.2",
+    "@deepseek-ai/dsh-typert-protocol": ">=0.2.0-rc.2"
+  },
+  "scripts": {
+    "pretest": "node scripts/link-host-peers.mjs",
+    "test": "node --test 'test/**/*.test.js'",
+    "check:i18n": "node scripts/check-i18n.mjs",
+    "verify": "npm run check:i18n && npm test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

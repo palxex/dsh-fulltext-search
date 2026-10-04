@@ -1,0 +1,4 @@
+# 本插件以独立 patch 层挂进 profile：插入一条 id 为 session-search 的加载行。
+- insert:
+    - id: session-search
+      name: 'dsh-fulltext-search'
